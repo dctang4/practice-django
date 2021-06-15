@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from firstapp.views import FirstView, SecondView, ThirdView, HelloWorld, index
+from firstapp.views import FirstView, SecondView, ThirdView, HelloWorld, TodoView, OneTodoView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,7 +27,6 @@ urlpatterns = [
     path("third/", ThirdView.as_view()),
 
     path("hello/", HelloWorld),
-    path("todo/", index),
-
-    path('api-auth/', include('rest_framework.urls'))
+    path("todo/", TodoView.as_view()),
+    path("todo/<param>/", OneTodoView.as_view())
 ]
